@@ -6,7 +6,7 @@ module.exports = class extends Page {
         super({title:"Home", sName:"Richard Hildred"});
     }
     render(sPage) {
-        const oJson = fetch("https://prog8110summer2021-default-rtdb.firebaseio.com/meals.json").json();
+        const oJson = fetch("https://prog8110-cc459-default-rtdb.firebaseio.com/meals.json").json();
         console.log(oJson);
         let sResult = "<h1>Upcoming Popup Meals</h1>";
         let n = 0;
@@ -18,6 +18,9 @@ module.exports = class extends Page {
             <h2>${oEntity.title}</h2>
             <p><img src="${oEntity.featured_image}" alt="${oEntity.title}"</p>
             <p>${oEntity.full_description}</p>
+            <p>${oEntity.location}</p>
+            <p>${oEntity.cost}</p>
+            <p>${oEntity.event_date}</p>
             <form>
                 <button id="button_${n++}" disabled class="paypal_button" data-cost="12.99">
                 Order now
